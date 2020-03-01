@@ -7,17 +7,10 @@
 // ========================================
 // Function Prototypes
 // ========================================
-int  get_user_body_height_cm();
+int get_user_body_height_cm();
 int read_user_input(char* input_buffer, short buffer_size);
-int  validate_string_contains_only_figures(char* input_buffer,
-                                           short buffer_size);
-int  convert_string_of_figures_to_number(char* input_buffer, short buffer_size);
-int  calculate_users_height_of_eyes(int body_height_cm);
-float calculate_horizon_distance_km(int view_height_cm);
-float calculate_triangle_angle_from_adjacent_and_hypothenuse(
-    float adjacent_length, float hypothenuse_length);
-float calculate_distance_circle_segment(float radius, float angle);
-void  print_horizon_distance(float distance);
+int validate_string_contains_only_figures(char* input_buffer, short buffer_size);
+int convert_string_of_figures_to_number(char* input_buffer, short buffer_size);
 
 // ========================================
 // Functions

@@ -1,5 +1,10 @@
 #include <math.h>
 
+int  calculate_users_height_of_eyes(int body_height_cm);
+float calculate_horizon_distance_km(int view_height_cm);
+float calculate_triangle_angle_from_adjacent_and_hypothenuse(float adjacent_length, float hypothenuse_length);
+float calculate_distance_circle_segment(float radius, float angle);
+
 int calculate_users_height_of_eyes(int body_height_cm) {
     return body_height_cm - 10;
 }
