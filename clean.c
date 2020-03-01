@@ -7,13 +7,18 @@
 #include "./calculations.c"
 #include "./printing.c"
 
+struct InputString {
+    char *value,
+    short length
+}
+
 // ========================================
 // Function Prototypes
 // ========================================
 int get_user_body_height_cm();
-int read_user_input(char* input_buffer, short buffer_size);
-int validate_string_contains_only_figures(char* input_buffer, short buffer_size);
-int convert_string_of_figures_to_number(char* input_buffer, short buffer_size);
+int read_user_input(InputString);
+int validate_string_contains_only_figures(InputString);
+int convert_string_of_figures_to_number(InputString);
 
 // ========================================
 // Functions
@@ -44,7 +49,7 @@ int get_user_body_height_cm() {
     return convert_string_of_figures_to_number(input_buffer, inputLength);
 }
 
-int read_user_input(char* input_buffer, short buffer_size) {
+int read_user_input(InputString input) {
     char        input_char      = '\0';
     short       char_read_count = 0;
 
@@ -62,8 +67,7 @@ int read_user_input(char* input_buffer, short buffer_size) {
     return char_read_count;
 }
 
-int validate_string_contains_only_figures(char* input_buffer,
-                                          short buffer_size) {
+int validate_string_contains_only_figures(InputString input) {
 
     for (int i = 0; i < buffer_size; input_buffer++, i++) {
         int charIsNoFigure = (*input_buffer > '9') || (*input_buffer < '0');
@@ -78,7 +82,7 @@ int validate_string_contains_only_figures(char* input_buffer,
     return SUCCESS;
 }
 
-int convert_string_of_figures_to_number(char* input_buffer, short buffer_size) {
+int convert_string_of_figures_to_number(InputString input) {
     short char_processed_count = 0;
     int   number               = 0;
 
