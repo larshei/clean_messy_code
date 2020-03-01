@@ -1,8 +1,12 @@
+#define SUCCESS 0
+#define FAILURE 1
+
 #include <stdio.h>
 #include <string.h>
 
 #include "./calculations.c"
 #include "./printing.c"
+
 
 // ========================================
 // Function Prototypes
@@ -19,8 +23,10 @@ int main(void) {
     int   body_height_cm      = get_user_body_height_cm();
     int   eye_height_cm       = calculate_users_height_of_eyes(body_height_cm);
     float horizon_distance_km = calculate_horizon_distance_km(eye_height_cm);
+
     print_horizon_distance(horizon_distance_km);
-    return 0;
+
+    return SUCCESS;
 }
 
 int get_user_body_height_cm() {
@@ -35,6 +41,7 @@ int get_user_body_height_cm() {
         userInputValid =
             validate_string_contains_only_figures(input_buffer, inputLength);
     } while (!userInputValid);
+
     return convert_string_of_figures_to_number(input_buffer, inputLength);
 }
 
@@ -56,16 +63,18 @@ int read_user_input(char* input_buffer, short buffer_size) {
 
 int validate_string_contains_only_figures(char* input_buffer,
                                           short buffer_size) {
+
     for (int i = 0; i < buffer_size; input_buffer++, i++) {
         short charIsNoFigure = (*input_buffer > '9') || (*input_buffer < '0');
         if (charIsNoFigure) {
-            return 0;
+            return FAILURE;
         }
         if (*input_buffer == '\0') {
             break;
         }
     }
-    return 1;
+
+    return SUCCESS;
 }
 
 int convert_string_of_figures_to_number(char* input_buffer, short buffer_size) {
