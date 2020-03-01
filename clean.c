@@ -5,7 +5,7 @@
 #include "./printing.c"
 
 // ========================================
-//  F U N C T I O N   P R O T O T Y P E S =
+// Function Prototypes
 // ========================================
 int  get_user_body_height_cm();
 int read_user_input(char* input_buffer, short buffer_size);
@@ -20,7 +20,7 @@ float calculate_distance_circle_segment(float radius, float angle);
 void  print_horizon_distance(float distance);
 
 // ========================================
-//  F U N C T I O N S                     =
+// Functions
 // ========================================
 int main(void) {
     int   body_height_cm      = get_user_body_height_cm();
