@@ -9,7 +9,8 @@
 
 struct InputString {
     char *value,
-    short length
+    short numeric_representation,
+    short length,
 }
 
 // ========================================
@@ -34,33 +35,37 @@ int main(void) {
 }
 
 int get_user_body_height_cm() {
-    short      userInputValid = 0;
-    short      inputLength    = 0;
-    const char buffer_size    = 5;
-    char       input_buffer[buffer_size];
+    InputString user_input;
 
-    do {
-        printf("Your body height in cm: ");
-        inputLength = read_user_input(input_buffer, buffer_size);
-        userInputValid =
-            validate_string_contains_only_figures(input_buffer, inputLength);
-    } while (!userInputValid);
+    printf("Your body height in cm: ");
+    user_input = read_user_input();
 
-    return convert_string_of_figures_to_number(input_buffer, inputLength);
+    user_input.numeric_representation = convert_string_of_figures_to_number(user_input);
+
+    return user_input;
 }
 
 int read_user_input(InputString input) {
-    char        input_char      = '\0';
-    short       char_read_count = 0;
+    short      userInputValid  = 0;
+    short      inputLength     = 0;
+    char       input_char      = '\0';
+    short      char_read_count = 0;
+    const char buffer_size     = 5;
+    char       input_buffer[buffer_size];
 
-    while ((input_char = getchar()) != '\n') {
-        *input_buffer++ = input_char;
-        char_read_count++;
+    do {
+        while ((input_char = getchar()) != '\n') {
+            *input_buffer++ = input_char;
+            char_read_count++;
 
-        if (char_read_count >= buffer_size - 1) {
-            break;
+            if (char_read_count >= buffer_size - 1) {
+                break;
+            }
         }
-    }
+
+        user_input = read_user_input(input_buffer, buffer_size);
+        userInputValid = validate_string_contains_only_figures(input_buffer, inputLength);
+    } while (!userInputValid);
 
     *input_buffer = '\0';
 
