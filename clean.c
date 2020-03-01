@@ -28,7 +28,6 @@ int main(void) {
     return 0;
 }
 
-/* =============== user input ==================== */
 int get_user_body_height_cm() {
     const char buffer_size = 5;
     char       input_buffer[buffer_size];
@@ -88,7 +87,6 @@ int convert_string_of_figures_to_number(char* input_buffer, short buffer_size) {
     return number;
 }
 
-/* =========== calculation functions ============ */
 int calculate_users_height_of_eyes(int body_height_cm) {
     return body_height_cm - 10;
 }
@@ -112,7 +110,6 @@ float calculate_distance_circle_segment(float radius, float angle) {
     return radius * angle;
 }
 
-/* ============ GUI =================== */
 void print_horizon_distance(float distance) {
     printf("\nThe horizon on a calm ocean is %.2f km far away.\n", distance);
 }
