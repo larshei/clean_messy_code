@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "./calculations.c"
+#include "./printing.c"
 
 // ========================================
 //  F U N C T I O N   P R O T O T Y P E S =
@@ -86,8 +87,4 @@ int convert_string_of_figures_to_number(char* input_buffer, short buffer_size) {
         }
     }
     return number;
-}
-
-void print_horizon_distance(float distance) {
-    printf("\nThe horizon on a calm ocean is %.2f km far away.\n", distance);
 }
