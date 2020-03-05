@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void  print_horizon_distance(float distance);
 
 void print_horizon_distance(float distance) {
